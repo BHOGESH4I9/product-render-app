@@ -1,0 +1,26 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 cards per row */
+  gap: 24px; /* Consistent spacing */
+  padding: 24px;
+}
+
+.App.dark .product-list {
+  background: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: 1fr; /* 1 card per row */
+    gap: 12px;
+    padding: 12px;
+  }
+}

@@ -1,0 +1,150 @@
+.categories-container {
+  width: 250px; /* Fixed width for sidebar and toggle icon */
+  position: sticky;
+  top: 64px; /* Below navbar */
+  height: calc(100vh - 64px); /* Full height minus navbar */
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-icon {
+  background: #2b8a3e;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 218px; /* Match sidebar content width (250px - 16px margin × 2) */
+  margin: 16px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  gap: 8px; /* Space between icon and text */
+}
+
+.toggle-icon:hover {
+  background: #4caf50;
+}
+
+.toggle-icon.active {
+  background: #4caf50;
+}
+
+.icon-wrapper {
+  display: inline-flex;
+  transition: transform 0.4s ease; /* Smooth animation for icon */
+}
+
+.toggle-icon.active .icon-wrapper {
+  transform: rotate(90deg); /* Rotate icon 90 degrees when active */
+}
+
+@keyframes iconRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(90deg); }
+}
+
+.App.dark .toggle-icon {
+  background: #4caf50;
+}
+
+.App.dark .toggle-icon:hover, .App.dark .toggle-icon.active {
+  background: #66bb6a;
+}
+
+.sidebar {
+  background: #ffffff;
+  border: 1px solid #ddd; /* Changed from border-right to full border for consistency */
+  border-radius: 10px;
+  padding: 16px;
+  position: absolute;
+  top: 64px; /* Below toggle icon (10px padding × 2 + 22px icon + 16px margin × 2) */
+  left: 16px; /* Align with toggle icon’s left edge (matches margin) */
+  width: 185px; /* Match toggle icon width (250px - 16px margin × 2) */
+  height: calc(100vh - 118px); /* Full height minus navbar (64px) and toggle icon area (54px) */
+  overflow-y: auto; /* Enable scrolling */
+  z-index: 999;
+  overflow: auto;         /* Enables scrolling */
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.App.dark .sidebar {
+  background: #2a2a2a;
+  border: 1px solid #444;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  margin: 0 0 16px;
+  color: #222;
+}
+
+.App.dark .sidebar-title {
+  color: #e0e0e0;
+}
+
+.search-input {
+  width: 92%;
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.App.dark .search-input {
+  background: #333;
+  border: 1px solid #666;
+  color: #e0e0e0;
+}
+
+.category-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #222;
+  text-align: left;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.category-btn:hover {
+  background: #f0f0f0;
+}
+
+.App.dark .category-btn {
+  border: 1px solid #666;
+  color: #e0e0e0;
+}
+
+.App.dark .category-btn:hover {
+  background: #444;
+}
+
+@media (max-width: 768px) {
+  .categories-container {
+    width: 100%;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 86px; /* Below navbar (56px) + toggle icon area (30px, adjusted for mobile) */
+    left: 0;
+    width: calc(100% - 32px); /* Full width minus margins */
+    height: calc(100vh - 86px); /* Full height minus navbar and toggle icon */
+  }
+
+  .toggle-icon {
+    width: calc(100% - 32px); /* Full width minus margins */
+    margin: 8px 16px;
+  }
+}

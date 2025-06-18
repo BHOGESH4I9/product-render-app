@@ -1,0 +1,36 @@
+/* Root App Styles */
+.App {
+  min-height: 100vh;
+  background: rgba(255, 255, 255, 0.9); 
+  color: #222;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.App.dark {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* Main Content */
+.main-content {
+  padding: 0;
+  margin-top: 64px; /* Space for fixed navbar */
+}
+
+/* Content Wrapper for Side-by-Side Layout */
+.content-wrapper {
+  display: flex;
+  max-width: 1400px; /* Adjusted for sidebar + product list */
+  margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; /* Stack sidebar and products on mobile */
+  }
+
+  .main-content {
+    margin-top: 56px; /* Adjusted for smaller navbar */
+  }
+}
